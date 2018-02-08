@@ -1,3 +1,19 @@
+#' Downloads tables
+#'
+#'
+#' Downloads tables
+#'
+#'
+#' @param output_file Name of the .Rdata file
+#'
+#'
+#'
+
+
+
+
+
+
 download_tables <- function(output_file = "data.Rdata") {
 
   URL <- "http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
