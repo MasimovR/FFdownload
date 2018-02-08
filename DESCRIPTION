@@ -8,5 +8,5 @@ Description: Returns
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: rvest, xts
+Depends: rvest, xts
 RoxygenNote: 6.0.1
