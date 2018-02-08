@@ -28,9 +28,9 @@ converter <- function(file) {
   a <- vector()
   for (i in 1:length(datatest)) a[i] <- nchar(as.character(datatest[[i]]$X[1])) == 4
 
-  annual  <- lapply(datatest[unlist(a)], function(x) xts(x[,-1], order.by = as.yearmon(as.character(x[, 1]), format = "%Y")) )
-  monthly <- lapply(datatest[unlist(m)], function(x) xts(x[,-1], order.by = as.yearmon(as.character(x[, 1]), format = "%Y%m")))
-  daily <- lapply(datatest[unlist(d)], function(x) xts(x[,-1], order.by = as.Date(as.character(x[, 1]), format = "%Y%m%d")))
+  annual  <- lapply(datatest[unlist(a)], function(x) xts::xts(x[,-1], order.by = as.yearmon(as.character(x[, 1]), format = "%Y")) )
+  monthly <- lapply(datatest[unlist(m)], function(x) xts::xts(x[,-1], order.by = as.yearmon(as.character(x[, 1]), format = "%Y%m")))
+  daily <- lapply(datatest[unlist(d)], function(x) xts::xts(x[,-1], order.by = as.Date(as.character(x[, 1]), format = "%Y%m%d")))
 
 
   return(list(annual = annual, monthly = monthly, daily = daily))
