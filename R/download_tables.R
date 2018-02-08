@@ -17,8 +17,8 @@
 download_tables <- function(output_file = "data.Rdata") {
 
   URL <- "http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
-  pg <- rvest::read_html(URL)
-  Flinks <- rvest::html_attr(rvest::html_nodes(pg, "a"), "href")
+  pg <- read_html(URL)
+  Flinks <- html_attr(html_nodes(pg, "a"), "href")
   Findex <- grep("CSV.zip",Flinks)
 
   temp <- tempdir()
