@@ -12,9 +12,7 @@
 
 
 
-
-
-download_tables <- function(output_file = "data.Rdata") {
+FFdownload <- function(output_file = "data.Rdata") {
 
   URL <- "http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
   pg <- read_html(URL)
@@ -42,7 +40,4 @@ download_tables <- function(output_file = "data.Rdata") {
   returns <- as.list(returns)
   save(returns, file = output_file)
 }
-
-
-
 
