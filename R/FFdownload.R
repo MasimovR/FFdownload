@@ -10,8 +10,6 @@
 #'
 
 
-
-
 FFdownload <- function(output_file = "data.Rdata") {
 
   URL <- "http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
@@ -30,14 +28,18 @@ FFdownload <- function(output_file = "data.Rdata") {
   lapply(zip_files, function (x) unzip(zipfile = x, exdir = temp))
 
   csv_files <- list.files(temp, full.names = TRUE, pattern = "\\.csv$", ignore.case = TRUE)
+  csv_files2 <- list.files(temp, full.names = FALSE, pattern = "\\.csv$", ignore.case = TRUE)
 
-  vars <- paste0("x_", gsub(paste0(temp, "/(.*)\\..*"), "\\1", csv_files))
+  vars <- paste0("x_", gsub("(.*)\\..*", "\\1", csv_files2)  )
 
   returns <- new.env()
 
   mapply(function(x, y) assign(x, converter(y), envir = returns), vars,  csv_files)
 
-  returns <- as.list(returns)
-  save(returns, file = output_file)
+  FFdownload <- as.list(returns)
+  save(FFdownload, file = output_file)
 }
+
+
+
 
